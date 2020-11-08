@@ -5,7 +5,7 @@ let movers = [];
 let liquid;
 
 function setup() {
-  createCanvas(640, 360);
+  createCanvas(410, 450);
   reset();
   liquid = new Liquid(0, height / 2, width, height / 2, 0.1);
 }
@@ -29,16 +29,16 @@ function draw() {
 
 }
 
-//function mousePressed() {
-  //movers[i] = new Mover(mouseX, mouseY, random(2, 4));
-//}
+function mousePressed() {
+  movers[i] = new Mover(mouseX, mouseY, random(2, 4));
+}
 
 function mousePressed() {
   reset();
 }
 function reset() {
   for (let i = 0; i < 9; i++) {
-    movers[i] = new Mover(random(0.5, 3), 40 + i * 70, 0);
+    movers[i] = new Mover(random(0.8, 3), 40 + i * 70, 0);
   }
 }
 
@@ -92,9 +92,9 @@ Mover.prototype.update = function() {
 };
 
 Mover.prototype.display = function() {
-  stroke(0);
+  noStroke();
   strokeWeight(2);
-  fill(255,127);
+  fill(250,200,0);
   ellipse(this.position.x, this.position.y, this.mass * 16, this.mass * 16);
 };
 
